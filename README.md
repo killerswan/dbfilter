@@ -1,6 +1,7 @@
-I don't know what the UCB folks need, so here's a sketch or two...
+First steps
+===
 
-One script here creates a database with a teeny amount of sample data:
+For SQLite exploration, one script here creates a database with a teeny amount of sample data:
 ```bash
 rm *.sqlite3
 python dbcreate.py
@@ -16,4 +17,14 @@ cat output.csv
 ```
 
 😺
+UCMR3 Data
+===
+
+Now to filter the data from [this UCMR3 publication](https://www.epa.gov/dwucmr/occurrence-data-unregulated-contaminant-monitoring-rule#3), after extracting the ZIP file so that this file exists: `ucmr-3-occurrence-data/UCMR3_All.txt`...
+
+```bash
+python ucmr_filter.py
+```
+
+This creates a file named `filtered-ucmr3-data.csv` which has a subset of the data, still in this tab-delimited Excel-readable file format.
 
