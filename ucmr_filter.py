@@ -2,13 +2,16 @@ import csv
 import string
 from common import newpathrel
 
+
 def isEpa537(raw_row):
     'if the MethodID field matches EPA 537'
     return "EPA 537" in raw_row['MethodID']
 
+
 def detected(raw_row):
     'if the analytical results sign indicates data found over the limit'
     return not "<" in raw_row['AnalyticalResultsSign']
+
 
 def zipForPws(raw_row):
     '''
@@ -25,12 +28,10 @@ def zipForPws(raw_row):
 
     return found_zips
 
+
 def showSimpleList(xs):
     return string.join(map(str,xs), ', ')
 
-
-# TODO: use DictReader
-# https://docs.python.org/2/library/csv.html#csv.DictReader
 
 if __name__ == '__main__':
     with open(newpathrel('ucmr-3-occurrence-data/UCMR3_All.txt'), 'rb') as ucmr3_filehandle:
