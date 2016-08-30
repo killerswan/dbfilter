@@ -15,7 +15,11 @@ if __name__ == '__main__':
             writer = csv.writer(output_filehandle, dialect='excel-tab')
             reader = csv.reader(ucmr3_filehandle,  dialect='excel-tab')
 
-            for row in reader:
+            for ii,row in enumerate(reader):
+                if ii == 0:
+                    print row
+                    writer.writerow(row)
+
                 if isEpa537(row) and detected(row):
                     print row
                     writer.writerow(row)
